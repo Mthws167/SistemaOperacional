@@ -30,28 +30,28 @@ class os_t:
 		key = self.terminal.get_key_buffer()
 
 		if ((key >= ord('a')) and (key <= ord('z'))) or ((key >= ord('A')) and (key <= ord('Z'))) or ((key >= ord('0')) and (key <= ord('9'))) or (key == ord(' ')) or (key == ord('-')) or (key == ord('_')) or (key == ord('.')):
-			# JUNTA A STRING QUE O USUÀRIO DIGITAR AO CONSOLE
+			# JUNTA A STRING QUE O USUARIO DIGITAR AO CONSOLE
 			self.console_str += chr(key)
-			# IMPRIMI O QUE ESTÁ NA VARIAVEL STRING
+			# IMPRIMI O QUE ESTA NA VARIAVEL STRING
 			self.terminal.console_print("\r" + self.console_str)
 			# "\r" RETORNO REAL DA STRING (EVITA ERROS COM CARACTER ESPECIAL)
 
 		elif key == curses.KEY_BACKSPACE:
 			# REMOVE O ULTIMO CARACTER DA STRING
 			self.console_str = self.console_str[:-1]
-			# IMPRIME O QUE ESTÁ NA STRING
+			# IMPRIME O QUE ESTA NA STRING
 			self.terminal.console_print("\r" + self.console_str)
 			return
 
 		elif (key == curses.KEY_ENTER) or (key == ord('\n')):
-			# VERIFICA SE ESTÁ VAZIO OU SE CONTÉM CARACTERES ESPECIAIS
+			# VERIFICA SE ESTA VAZIO OU SE CONTEM CARACTERES ESPECIAIS
 			if (self.console_str == "" or self.console_str.isspace()):
 				self.terminal.console_print("Enter valid characters\n")
 				self.console_str = ""
 
 			else:
 				self.terminal.console_print("\n")
-				#metodo aqui
+				
 				if(self.console_str == "exit"):
 					exit()  # DIGITE "EXIT" PARA SAIR DO SISTEMA
 
@@ -66,7 +66,7 @@ class os_t:
 
 	def handle_interrupt(self, interrupt):
 
-		# VERIFICA SE HÁ INTERRUPÇÂO DO TECLADO E SE HOUVER SEGUE PARA O MÉTODO ABAIXO
+		# VERIFICA SE HA INTERRUPCAO DO TECLADO E SE HOUVER SEGUE PARA O METODO ABAIXO
 		if interrupt == pycfg.INTERRUPT_KEYBOARD:
 			self.interrupt_keyboard()
 		return
