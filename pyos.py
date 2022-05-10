@@ -52,8 +52,8 @@ class os_t:
 			else:
 				self.terminal.console_print("\n")
 				
-				if(self.console_str == "exit"):
-					exit()  # DIGITE "EXIT" PARA SAIR DO SISTEMA
+				if(self.console_str == "sair"):
+					exit()  # DIGITE "sair" PARA SAIR DO SISTEMA
 
 				if(self.console_str[0:3] == "run"):
 					# self.terminal.console_print(self.console_str[3:])
