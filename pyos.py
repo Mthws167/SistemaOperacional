@@ -29,7 +29,7 @@ class os_t:
 	def interrupt_keyboard(self):
 		key = self.terminal.get_key_buffer()
 
-		if ((key >= ord('a')) and (key <= ord('z'))) or ((key >= ord('A')) and (key <= ord('Z'))) or ((key >= ord('0')) and (key <= ord('9'))) or (key == ord(' ')) or (key == ord('-')) or (key == ord('_')) or (key == ord('.')) or (key == ord(',')):
+		if ((key >= ord('a')) and (key <= ord('z'))) or ((key >= ord('A')) and (key <= ord('Z'))) or ((key >= ord('0')) and (key <= ord('9'))) or (key == ord(' ')) or (key == ord('-')) or (key == ord('_')) or (key == ord('.')):
 			# JUNTA A STRING QUE O USUARIO DIGITAR AO CONSOLE
 			self.console_str += chr(key)
 			# IMPRIMI O QUE ESTA NA VARIAVEL STRING
@@ -74,12 +74,20 @@ class os_t:
 	def syscall(self):
 		self.terminal.console_print("Loading Process{}".format(self.command))
 
-		if(self.command == "print"):
-			self.terminal.app_print("print nao implementado")
+		if(self.command == "idle"): 
+			self.terminal.app_print("idle nao foi implementado")
+		elif(self.command == "perfect-squares"):
+			self.terminal.app_print("perfect-squares nao foi implementado")
+		elif(self.command == "print"):
+			self.terminal.app_print("print nao foi implementado")
+		elif(self.command == "print2"):
+			self.terminal.app_print("print2 nao foi implementado")
+		elif(self.command == "test-gpf"):
+			self.terminal.app_print("test-gpf nao foi implementado")
 		elif(self.command == "teste"):
-			self.terminal.app_print("teste nao implementedo")
+			self.terminal.app_print("teste nao foi implementado")
 		else:
-			self.terminal.console_print("Comando {} não existe".format(self.command))
+			self.terminal.console_print("O comando {} nao existe".format(self.command))
 
 		self.command = ""
 
