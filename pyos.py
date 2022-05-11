@@ -15,7 +15,7 @@ class os_t:
 
 		self.console_str = ""
 		self.command = ""
-		self.terminal.console_print("this is the console, type the commands here\n")
+		self.terminal.console_print("Bem vindo ao console, digite os comandos. \n\n")
 
 	def printk(self, msg):
 		self.terminal.kernel_print("kernel: " + msg + "\n")
@@ -46,7 +46,7 @@ class os_t:
 		elif (key == curses.KEY_ENTER) or (key == ord('\n')):
 			# VERIFICA SE ESTA VAZIO OU SE CONTEM CARACTERES ESPECIAIS
 			if (self.console_str == "" or self.console_str.isspace()):
-				self.terminal.console_print("Enter valid characters\n")
+				self.terminal.console_print("Digite caracteres validos \n")
 				self.console_str = ""
 
 			else:
