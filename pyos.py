@@ -56,7 +56,7 @@ class os_t:
 					exit()  # DIGITE "sair" PARA SAIR DO SISTEMA
 
 				if(self.console_str[0:3] == "iniciar"):
-					# self.terminal.console_print(self.console_str[3:])
+					# COMANDO SEM EFEITO NO SISTEMA
 					self.command = self.console_str[4:]
 					self.syscall()
 
@@ -75,11 +75,9 @@ class os_t:
 		self.terminal.console_print("Loading Process{}".format(self.command))
 
 		if(self.command == "print"):
-			self.terminal.app_print("print not implemented")
-		elif(self.command == "print2"):
-			self.terminal.app_print("print2 not implemented")
+			self.terminal.app_print("print nao implementado")
 		elif(self.command == "teste"):
-			self.terminal.app_print("teste not implemented")
+			self.terminal.app_print("teste nao implementedo")
 		else:
 			self.terminal.console_print("Comando {} não existe".format(self.command))
 
