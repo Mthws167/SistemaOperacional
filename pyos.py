@@ -29,7 +29,7 @@ class os_t:
 	def interrupt_keyboard(self):
 		key = self.terminal.get_key_buffer()
 
-		if ((key >= ord('a')) and (key <= ord('z'))) or ((key >= ord('A')) and (key <= ord('Z'))) or ((key >= ord('0')) and (key <= ord('9'))) or (key == ord(' ')) or (key == ord('-')) or (key == ord('_')) or (key == ord('.')):
+		if ((key >= ord('a')) and (key <= ord('z'))) or ((key >= ord('A')) and (key <= ord('Z'))) or ((key >= ord('0')) and (key <= ord('9'))) or (key == ord(' ')) or (key == ord('-')) or (key == ord('_')) or (key == ord('.')) or (key == ord(',')):
 			# JUNTA A STRING QUE O USUARIO DIGITAR AO CONSOLE
 			self.console_str += chr(key)
 			# IMPRIMI O QUE ESTA NA VARIAVEL STRING
