@@ -55,7 +55,7 @@ class os_t:
 				if(self.console_str == "sair"):
 					exit()  # DIGITE "sair" PARA SAIR DO SISTEMA
 
-				if(self.console_str[0:3] == "run"):
+				if(self.console_str[0:3] == "iniciar"):
 					# self.terminal.console_print(self.console_str[3:])
 					self.command = self.console_str[4:]
 					self.syscall()
