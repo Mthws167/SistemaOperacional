@@ -15,7 +15,7 @@ class os_t:
 
 		self.console_str = ""
 		self.command = ""
-		self.terminal.console_print("Bem vindo ao console, digite os comandos. \n\n")
+		self.terminal.console_print("Bem vindo ao console, digite os comandos.\n\n")
 
 	def printk(self, msg):
 		self.terminal.kernel_print("kernel: " + msg + "\n")
@@ -74,20 +74,14 @@ class os_t:
 	def syscall(self):
 		self.terminal.console_print("Loading Process{}".format(self.command))
 
-		if(self.command == "idle"):
-			self.terminal.app_print("idle not implemented")
-		elif(self.command == "perfect-squares"):
-			self.terminal.app_print("perfect-squares not implemented")
-		elif(self.command == "print"):
+		if(self.command == "print"):
 			self.terminal.app_print("print not implemented")
 		elif(self.command == "print2"):
 			self.terminal.app_print("print2 not implemented")
-		elif(self.command == "test-gpf"):
-			self.terminal.app_print("test-gpf not implemented")
 		elif(self.command == "teste"):
 			self.terminal.app_print("teste not implemented")
 		else:
-			self.terminal.console_print("Command {} do not exist".format(self.command))
+			self.terminal.console_print("Comando {} não existe".format(self.command))
 
 		self.command = ""
 
