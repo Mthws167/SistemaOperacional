@@ -28,7 +28,7 @@ class os_t:
 	def interrupt_keyboard (self):
 		key = self.terminal.get_key_buffer()
 
-		if ((key >= ord('a')) and (key <= ord('z'))) or ((key >= ord('A')) and (key <= ord('Z'))) or ((key >= ord('0')) and (key <= ord('9'))) or (key == ord(' ')) or (key == ord('-')) or (key == ord('_')) or (key == ord('.'))or (key == ord(',')):
+		if ((key >= ord('a')) and (key <= ord('z'))) or ((key >= ord('A')) and (key <= ord('Z'))) or ((key >= ord('0')) and (key <= ord('9'))) or (key == ord(' ')) or (key == ord('-')) or (key == ord('_')) or (key == ord('.')):
 			self.console_str += chr(key)
 			# ord transforma em numeros que representam o caracter digitado(unicode)
 			# chr transforma o unicode em caracter 
@@ -44,9 +44,16 @@ class os_t:
 			# digite "sair" para encerrar o programa
 				exit()  
 				#funcao para encerrar o programa
-
-			elif(self.console_str== "iniciar"):
-				self.terminal.console_print("\r"+"Iniciando...")
+			elif(self.console_str == "run"):
+			#placeholder
+				self.terminal.app_print("\r"+"Iniciando...")
+				exit()  
+				#funcao para encerrar o programa
+			
+			elif(self.console_str[0:7]== "iniciar"):
+			#placeholder syscall
+				self.console_str= self.console_str[8:]
+				self.syscall()
 					
 			self.console_str = ""
 
@@ -62,13 +69,29 @@ class os_t:
 		# Se for usado segue para o metodo abaixo
 		if interrupt == pycfg.INTERRUPT_KEYBOARD:
 			self.interrupt_keyboard()
-			self.syscall()
 		return	
 		
 	def syscall (self):
 	#self.terminal.app_print(msg)
+		self.terminal.console_print("\r"+"Carregando processo {}".format(self.console_str))
 
-					
+		if(self.console_str == "idle"):
+			self.terminal.app_print("idle nao implementado")
+		elif(self.console_str == "perfect-squares"):
+			self.terminal.app_print("perfect-squares nao implementado")
+		elif(self.console_str == "print"):
+			self.terminal.app_print("print nao implementado")
+		elif(self.console_str == "print2"):
+			self.terminal.app_print("print2 nao implementado")
+		elif(self.console_str == "test-gpf"):
+			self.terminal.app_print("test-gpf nao implementado")
+		elif(self.console_str == "teste"):
+			self.terminal.app_print("teste nao implementado")
+		else:
+			self.terminal.console_print("\r"+"Comando {} nao existe".format(self.console_str))
+
+		self.console_str = ""
+
 		return
 		
 		
