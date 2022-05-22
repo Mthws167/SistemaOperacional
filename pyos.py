@@ -45,10 +45,9 @@ class os_t:
 				exit()  
 				#funcao para encerrar o programa
 
-			if(self.console_str== "iniciar"):
+			elif(self.console_str== "iniciar"):
 				self.terminal.console_print("\r"+"Iniciando...")
-
-				
+					
 			self.console_str = ""
 
 			return
@@ -63,10 +62,13 @@ class os_t:
 		# Se for usado segue para o metodo abaixo
 		if interrupt == pycfg.INTERRUPT_KEYBOARD:
 			self.interrupt_keyboard()
+			self.syscall()
 		return	
 		
 	def syscall (self):
 	#self.terminal.app_print(msg)
-		
 
+					
 		return
+		
+		
