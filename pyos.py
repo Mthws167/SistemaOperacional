@@ -73,7 +73,7 @@ class os_t:
 		
 	def syscall (self):
 	#self.terminal.app_print(msg)
-		self.terminal.console_print("\r"+"Syscall/Interrupcao nao implementada {}".format(self.console_str))
+		self.terminal.console_print("\n\r"+"Syscall/Interrupcao nao implementada {}".format(self.console_str))
 
 		self.console_str = ""
 
