@@ -73,22 +73,7 @@ class os_t:
 		
 	def syscall (self):
 	#self.terminal.app_print(msg)
-		self.terminal.console_print("\r"+"Carregando processo {}".format(self.console_str))
-
-		if(self.console_str == "idle"):
-			self.terminal.app_print("idle nao implementado")
-		elif(self.console_str == "perfect-squares"):
-			self.terminal.app_print("perfect-squares nao implementado")
-		elif(self.console_str == "print"):
-			self.terminal.app_print("print nao implementado")
-		elif(self.console_str == "print2"):
-			self.terminal.app_print("print2 nao implementado")
-		elif(self.console_str == "test-gpf"):
-			self.terminal.app_print("test-gpf nao implementado")
-		elif(self.console_str == "teste"):
-			self.terminal.app_print("teste nao implementado")
-		else:
-			self.terminal.console_print("\r"+"Comando {} nao existe".format(self.console_str))
+		self.terminal.console_print("\r"+"Syscall/Interrupcao nao implementada {}".format(self.console_str))
 
 		self.console_str = ""
 
