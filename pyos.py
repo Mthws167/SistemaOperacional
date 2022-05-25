@@ -46,8 +46,9 @@ class os_t:
 				#funcao para encerrar o programa
 			elif(self.console_str == "run"):
 			#placeholder
-				self.terminal.app_print("\r"+"Iniciando...")
+				self.terminal.app_print("\r"+"Erro")
 				exit()  
+				
 				#funcao para encerrar o programa
 			
 			elif(self.console_str[0:7]== "iniciar"):
@@ -73,7 +74,7 @@ class os_t:
 		
 	def syscall (self):
 	#self.terminal.app_print(msg)
-		self.terminal.console_print("\n\r"+"Syscall/Interrupcao nao implementada {}".format(self.console_str))
+		self.terminal.app_print("\n\r"+"Syscall/Interrupcao nao implementada ")
 
 		self.console_str = ""
 
