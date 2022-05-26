@@ -84,6 +84,4 @@ class os_t:
 		self.console_str = ""
 
 		return
-		
-
-		
+	
