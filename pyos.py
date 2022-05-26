@@ -34,24 +34,24 @@ class os_t:
 			# chr transforma o unicode em caracter 
 			# adiciona o valor da "key" na variavel controle_str
 			
-		elif key == curses.KEY_BACKSPACE:
+		if key == curses.KEY_BACKSPACE:
 			self.console_str = self.console_str[:-1]
 			#[:-1] remove o ultimo valor no console
 			return
 			
-		elif (key == curses.KEY_ENTER) or (key == ord('\n')):
+		if (key == curses.KEY_ENTER) or (key == ord('\n')):
 			if(self.console_str == "sair"):
 			# digite "sair" para encerrar o programa
 				exit()  
 				#funcao para encerrar o programa
-			elif(self.console_str == "run"):
+			if(self.console_str == "run"):
 			#placeholder
-				self.terminal.app_print("\r"+"Erro")
+				self.terminal.console_print("\r"+"Erro")
 				exit()  
 				
 				#funcao para encerrar o programa
 			
-			elif(self.console_str[0:7]== "iniciar"):
+			if(self.console_str[0:7]== "iniciar"):
 			#placeholder syscall
 				self.console_str= self.console_str[8:]
 				self.syscall()
@@ -70,6 +70,11 @@ class os_t:
 		# Se for usado segue para o metodo abaixo
 		if interrupt == pycfg.INTERRUPT_KEYBOARD:
 			self.interrupt_keyboard()
+		if interrupt == pycfg.INTERRUPT_MEMORY_PROTECTION_FAULT :
+			self.printk("Interrupcao de protecao de memoria nao aplicado")
+		if interrupt == pycfg.INTERRUPT_TIMER:
+			self.printk("Interrupcao de timer nao aplicado")
+			
 		return	
 		
 	def syscall (self):
