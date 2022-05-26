@@ -51,7 +51,7 @@ class os_t:
 				
 				#funcao para encerrar o programa
 			
-			if(self.console_str[0:7]== "iniciar"):
+			if(self.console_str[0:7]== "syscall"):
 			#placeholder syscall
 				self.console_str= self.console_str[8:]
 				self.syscall()
@@ -85,4 +85,5 @@ class os_t:
 
 		return
 		
+
 		
