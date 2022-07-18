@@ -211,7 +211,7 @@ class os_t:
 		# - registradores de proposito geral -- X
 		task.regs = self.regs
 		# - PC -- X
-		tasl.reg_pc = self.reg_pc
+		task.reg_pc = self.reg_pc
 		# Atualizar o estado do processo -- X
 		return task.state
 
