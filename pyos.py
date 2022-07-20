@@ -111,35 +111,35 @@ class os_t:
 
 		# TODO
 		# Escrever no processador os registradores de proposito geral salvos na task struct -- X
-			self.regs = task.regs
+		self.regs = task.regs
+		
 		# Escrever no processador o PC salvo na task struct -- X
-			self.reg_pc = task.reg_pc
+		self.reg_pc = task.reg_pc
+		
 		# Atualizar estado do processo -- X
-			task.state = PYOS_TASK_STATE_EXECUTING
+		task.state = PYOS_TASK_STATE_EXECUTING
+		
 		# Escrever no processador os registradores que configuram a memoria virtual, salvos na task struct -- X 
-			self.paddr_offset,self.paddr_max = task.paddr_offset,task.paddr_max
+		self.paddr_offset,self.paddr_max = task.paddr_offset,task.paddr_max
 			
 
 	def get_task_amount_of_memory (self, task):
 		return task.paddr_max - task.paddr_offset + 1
 
-	# allocate contiguos physical addresses that have $words
+	# allocate contiguos physical addresses thatDY have $words
 	# returns the ids of the first and last pages
 	# -1, -1 if cannot find
 
 	def allocate_contiguos_physical_memory_to_task (self, words, task):
 		# TODO
-		# Localizar um bloco de memoria livre para armazenar o processo
+		# Localizar um bloco de memoria livre para armazenar o processo --X
+		if(task.bin_name=='idle.bin'):
+			return 0, task.bin_size
+
 		
-		
-		if(task.regs == [0, 0, 0, 0, 0, 0, 0, 0]):
-			task.paddr_offset, task.paddr_max = self.allocate_contiguos_physical_memory_to_task(task.bin_size, task)
-		
-		# Retornar tupla <primeiro endereco livre>, <ultimo endereco livre>
-			
-			
-		return task.paddr_offset
-		return task.paddr_max
+		# Retornar tupla <primeiro endereco livre>, <ultimo endereco livre> --X
+		else:
+			return idle.bin_size, task.bin_size
 			
 		# if we get here, there is no free space to put the task
 		self.printk("could not allocate memory to task "+task.bin_name)
@@ -207,13 +207,14 @@ class os_t:
 
 		# TODO
 		# Salvar na task struct
-		
 		# - registradores de proposito geral -- X
-		task.regs = self.regs
+		self.current_task.bin_name =task.regs 
+		
 		# - PC -- X
-		task.reg_pc = self.reg_pc
+		self.current_task.bin_name =task.reg_pc  
+		
 		# Atualizar o estado do processo -- X
-		return task.state
+		task.state = PYOS_TASK_STATE_READY
 
 		self.current_task = None
 		self.printk("unscheduling task "+task.bin_name)
@@ -260,6 +261,23 @@ class os_t:
 
 		# TODO
 		# Implementar aqui as outras chamadas de sistema
+	
 		
 		else:
 			self.handle_gpf("invalid syscall "+str(service))
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
