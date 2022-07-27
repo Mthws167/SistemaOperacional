@@ -108,19 +108,20 @@ class os_t:
 			self.panic("current_task must be None when scheduling a new one (current_task="+self.current_task.bin_name+")")
 		if task.state != PYOS_TASK_STATE_READY:
 			self.panic("task "+task.bin_name+" must be in READY state for being scheduled (state = "+str(task.state)+")")
+		
 
 		# TODO
-		# Escrever no processador os registradores de proposito geral salvos na task struct -- X
-		self.regs = task.regs
+		# Escrever no processador os registradores de proposito geral salvos na task struct --X
+			cpu.regs = task.regs 
 		
-		# Escrever no processador o PC salvo na task struct -- X
-		self.reg_pc = task.reg_pc
+		# Escrever no processador o PC salvo na task struct --X
+			cpu.reg_pc = task.reg_pc
 		
-		# Atualizar estado do processo -- X
-		task.state = PYOS_TASK_STATE_EXECUTING
+		# Atualizar estado do processo --X
+			task.state = PYOS_TASK_STATE_EXECUTING 
 		
-		# Escrever no processador os registradores que configuram a memoria virtual, salvos na task struct -- X 
-		self.paddr_offset,self.paddr_max = task.paddr_offset,task.paddr_max
+		# Escrever no processador os registradores que configuram a memoria virtual, salvos na task struct --X
+			self.cpu.paddr_offset, self.cpu.paddr_max = task.paddr_offset,task.paddr_max
 			
 
 	def get_task_amount_of_memory (self, task):
@@ -131,18 +132,23 @@ class os_t:
 	# -1, -1 if cannot find
 
 	def allocate_contiguos_physical_memory_to_task (self, words, task):
+	
 		# TODO
 		# Localizar um bloco de memoria livre para armazenar o processo --X
+
 		if(task.bin_name==task.bin_name):
-		
+			task.bin_size=words
 			return 0, task.bin_size
 
 		
 		# Retornar tupla <primeiro endereco livre>, <ultimo endereco livre> --X
 		else:
+			task.bin_size=words
 			return idle.bin_size, task.bin_size
 			
+		
 		# if we get here, there is no free space to put the task
+ 
 		self.printk("could not allocate memory to task "+task.bin_name)
 		return -1, -1
 
@@ -207,15 +213,15 @@ class os_t:
 			self.panic("task "+task.bin_name+" must be the current_task for being scheduled (current_task = "+self.current_task.bin_name+")")
 
 		# TODO
-		# Salvar na task struct
-		# - registradores de proposito geral -- X
-		self.current_task.bin_name =task.regs 
+		# Salvar na task struct --X
+		# - registradores de proposito geral
+			task.regs = cpu.regs
 		
-		# - PC -- X
-		self.current_task.bin_name =task.reg_pc  
+		# - PC --X
+			task.reg_pc = cpu.regs
 		
 		# Atualizar o estado do processo -- X
-		task.state = PYOS_TASK_STATE_READY
+			task.state = PYOS_TASK_STATE_READY
 
 		self.current_task = None
 		self.printk("unscheduling task "+task.bin_name)
