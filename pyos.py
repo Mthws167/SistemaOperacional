@@ -133,7 +133,8 @@ class os_t:
 	def allocate_contiguos_physical_memory_to_task (self, words, task):
 		# TODO
 		# Localizar um bloco de memoria livre para armazenar o processo --X
-		if(task.bin_name=='idle.bin'):
+		if(task.bin_name==task.bin_name):
+		
 			return 0, task.bin_size
 
 		
